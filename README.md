@@ -1,1 +1,1 @@
-https://github.com/{owner}/{repo}/actions/workflows/{workflow_file}/badge.svg
+https://github.com/sudrain/gendiff/actions/workflows/ci.yml/badge.svg
