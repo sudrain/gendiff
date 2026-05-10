@@ -1,21 +1,15 @@
-import json
+from gen_diff.parsers import pars_file
 
 
 def generate_diff(file1, file2):
-    data1 = get_json(file1)
-    data2 = get_json(file2)
+    data1 = pars_file(file1)
+    data2 = pars_file(file2)
     all_keys = sorted(set(data1.keys() | data2.keys()))
     result = list(map(lambda k: get_diff_line(k, data1, data2), all_keys))
     formated_result = (
         "{\n" + "\n".join(list(map(lambda x: "\n".join(x), result))) + "\n}"  # type: ignore
     )
     return formated_result
-
-
-def get_json(path):
-    with open(path, "r") as f:
-        data = json.load(f)
-    return data
 
 
 def get_diff_line(key, dict1, dict2):

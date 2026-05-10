@@ -1,18 +1,19 @@
-from gen_diff.generate_diff import generate_diff, get_diff_line, get_json
+from gen_diff.generate_diff import (
+    generate_diff,
+    get_diff_line,
+)
+from gen_diff.parsers import pars_file
 
-############################################################
-#                          JSON                            #
-############################################################
 
-
-def test_get_json():
+def test_pars_file():
     result = {
         "host": "hexlet.io",
         "timeout": 50,
         "proxy": "123.234.53.22",
         "follow": False,
     }
-    assert get_json("tests/fixtures/file1.json") == result
+    assert pars_file("tests/fixtures/file1.yml") == result
+    assert pars_file("tests/fixtures/file1.json") == result
 
 
 def test_get_diff_line():
@@ -26,19 +27,14 @@ def test_get_diff_line():
     assert get_diff_line("key", {"key": "old"}, {"key": "new"}) == res4
 
 
-def test_flat_json():
-    diff = generate_diff(
+def test_generate_flat_diff():
+    diff1 = generate_diff(
         "tests/fixtures/file1.json", "tests/fixtures/file2.json"
+    )
+    diff2 = generate_diff(
+        "tests/fixtures/file1.yml", "tests/fixtures/file2.yml"
     )
     with open("tests/fixtures/flat_json_result.txt") as f:
         expected = f.read()
-    assert diff == expected
-
-
-############################################################
-#                          yaml                            #
-############################################################
-
-
-def test_get_yaml():
-    pass
+    assert diff1 == expected
+    assert diff2 == expected
