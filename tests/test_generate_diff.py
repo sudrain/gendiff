@@ -26,6 +26,6 @@ def test_flat_json():
     diff = generate_diff(
         "tests/fixtures/file1.json", "tests/fixtures/file2.json"
     )
-    with open("tests/fixtures/flat_json_result") as f:
+    with open("tests/fixtures/flat_json_result.txt") as f:
         expected = f.read()
     assert diff == expected  # убираем возможный перенос в конце
