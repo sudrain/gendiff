@@ -1,5 +1,9 @@
 from gen_diff.generate_diff import generate_diff, get_diff_line, get_json
 
+############################################################
+#                          JSON                            #
+############################################################
+
 
 def test_get_json():
     result = {
@@ -31,5 +35,10 @@ def test_flat_json():
     assert diff == expected
 
 
-# def test_ga():
-#     assert 0 == 1
+############################################################
+#                          yaml                            #
+############################################################
+
+
+def test_get_yaml():
+    pass
