@@ -1,1 +1,1 @@
-https://github.com/sudrain/gendiff/actions/workflows/ci.yml/badge.svg
+![Build Status](https://github.com/sudrain/gendiff/actions/workflows/ci.yml/badge.svg)
