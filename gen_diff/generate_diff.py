@@ -22,8 +22,15 @@ def get_diff_line(key, dict1, dict2):
     if key in dict1:
         if key in dict2:
             if dict1[key] != dict2[key]:
-                return [f" - {key}: {dict1[key]}", f" + {key}: {dict2[key]}"]
-            return [f"   {key}: {dict1[key]}"]
-        return [f" - {key}: {dict1[key]}"]
-    if key in dict2 and key not in dict1:
-        return [f" + {key}: {dict2[key]}"]
+                return [
+                    f" - {key}: {format_value(dict1[key])}",
+                    f" + {key}: {format_value(dict2[key])}",
+                ]
+            return [f"   {key}: {format_value(dict1[key])}"]
+        return [f" - {key}: {format_value(dict1[key])}"]
+    if key in dict2:
+        return [f" + {key}: {format_value(dict2[key])}"]
+
+
+def format_value(val):
+    return str(val).lower()
