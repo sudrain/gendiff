@@ -28,4 +28,8 @@ def test_flat_json():
     )
     with open("tests/fixtures/flat_json_result.txt") as f:
         expected = f.read()
-    assert diff == expected  # убираем возможный перенос в конце
+    assert diff == expected
+
+
+def test_ga():
+    assert 0 == 1
