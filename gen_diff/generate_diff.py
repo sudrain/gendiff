@@ -27,9 +27,9 @@ def get_diff_line(key, dict1, dict2):
                     f" + {key}: {format_value(dict2[key])}",
                 ]
             return [f"   {key}: {format_value(dict1[key])}"]
-        return [f"  - {key}: {format_value(dict1[key])}"]
+        return [f" - {key}: {format_value(dict1[key])}"]
     if key in dict2:
-        return [f"  + {key}: {format_value(dict2[key])}"]
+        return [f" + {key}: {format_value(dict2[key])}"]
 
 
 def format_value(val):
