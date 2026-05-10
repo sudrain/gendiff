@@ -9,7 +9,7 @@ dependencies = [
 ]
 
 [project.scripts]
-gendiff = "gen_diff.scripts.cli:main"
+gendiff = "cli:main"
 
 
 [dependency-groups]
